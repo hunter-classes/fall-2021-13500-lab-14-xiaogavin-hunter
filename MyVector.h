@@ -1,24 +1,25 @@
 #pragma once
 
-const int GROWTH = 5; 
+const int GROWTH_FACTOR = 2; 
 
 template <class T> 
 class MyVector { 
     public: 
         MyVector(); 
         int size(); 
-        // int capacity(); 
-        // void empty();
+        int capacity(); 
+        bool empty();
         void push_back(T item); 
         // void pop_back(T item);
-        // void pop_back(); 
-        // void clear(); 
+        void pop_back(); 
+        // Removes the last element in the vector, effectively reducing the container size by one.
+        void clear(); 
         T &operator[] (int i); 
         void resize();
 
     private:
         T *data;
-        int initial_size; 
+        int capacity_of_array; 
         int real_size; 
 }; 
 
