@@ -18,8 +18,14 @@ int MyVector<T>::size() {
 template <class T> 
 T &MyVector<T>::operator[] (int i) { 
     // needs to check array for its current size and data 
-    if(std::is_lvalue_reference<T>::value && i > real_size) {
-        
+    if(i > real_size) {
+        T *temp = new T[capacity_of_array]; 
+        for(int j = 0; j < real_size; j++) {
+            temp[j] = data[j]; 
+        }    
+
+        delete[] data;
+        data = temp; 
     }
 
     return data[i];
@@ -63,8 +69,24 @@ void MyVector<T>::pop_back() {
 
     real_size--;
     delete[] data; 
-    data = temp; 
-    
+    data = temp;     
+}
+
+template <class T> 
+void MyVector<T>::pop_back(int i) {
+    if(i < real_size) { 
+        T *temp = new T[capacity_of_array];
+        int counter = 0; 
+        for(int j = 0; j < real_size; j++) { 
+            if(j != i) { 
+                temp[counter] = data[j];
+                counter++;  
+            }
+        }
+
+        delete[] data; 
+        data = temp; 
+    }
 }
 
 template <class T>

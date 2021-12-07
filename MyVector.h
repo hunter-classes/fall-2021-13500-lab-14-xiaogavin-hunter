@@ -10,7 +10,7 @@ class MyVector {
         int capacity(); 
         bool empty();
         void push_back(T item); 
-        // void pop_back(T item);
+        void pop_back(int i);
         void pop_back(); 
         // Removes the last element in the vector, effectively reducing the container size by one.
         void clear(); 
