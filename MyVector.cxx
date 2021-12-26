@@ -98,6 +98,6 @@ template <class T>
 void MyVector<T>::clear() { 
     delete[] data; 
     data = nullptr; 
-    real_size = 0; 
-    capacity_of_array = 0;
+    real_size = 0;
+    T *data = new T[capacity_of_array];
 }
