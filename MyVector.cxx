@@ -5,7 +5,7 @@
 
 template <class T> 
 MyVector<T>::MyVector() { 
-    capacity_of_array = 1; 
+    capacity_of_array = 0; 
     real_size = 0;
     data = new T[capacity_of_array]; 
 }
@@ -45,6 +45,12 @@ void MyVector<T>::push_back(T item) {
 
 template <class T> 
 void MyVector<T>::resize() { 
+    if(capacity_of_array == 0) { 
+        capacity_of_array = 1;
+        delete[] data;
+        data = new T[capacity_of_array];
+    }
+
     capacity_of_array *= GROWTH_FACTOR; 
     T *temp = new T[capacity_of_array]; 
     for(int i = 0; i < capacity_of_array / GROWTH_FACTOR; i++) { 
@@ -84,6 +90,7 @@ void MyVector<T>::pop_back(int i) {
             }
         }
 
+        real_size--;
         delete[] data; 
         data = temp; 
     }
