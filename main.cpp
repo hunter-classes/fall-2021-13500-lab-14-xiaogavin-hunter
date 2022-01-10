@@ -2,69 +2,47 @@
 #include "MyVector.h" 
 
 int main() { 
-    MyVector<int> t; 
+    MyVector<int> nums; 
     
-    t.push_back(100);
-    t.push_back(101);
-    t.push_back(100);
-    t.push_back(101);
-    t.push_back(101);
+    for(int i = 0; i < 10; i++) { 
+        nums.push_back(i);
+    }
 
-    std::cout << t[0] << std::endl;
-    std::cout << t[1] << std::endl;
-    std::cout << t[2] << std::endl;
-    std::cout << t[3] << std::endl;
-    std::cout << t[4] << std::endl;
-    std::cout << "\n============" << std::endl;
-    std::cout << t.size() << std::endl;
-    std::cout << t.capacity() << std::endl;
-    std::cout << "\n============" << std::endl;
+    nums[5] = 50;
 
-    std::cout << t[0] << std::endl;
-    std::cout << t[1] << std::endl;
-    std::cout << t[2] << std::endl;
-    std::cout << t[3] << std::endl;
-    std::cout << t[4] << std::endl;
+    for(int i = 0; i < nums.size(); i++) { 
+        std::cout << nums[i] << " ";
+    }
 
-    t[6] = 100; 
-    std::cout << t[6] << std::endl; 
+    std::cout << std::endl;
 
+    MyVector<std::string> num_in_words;
+    num_in_words.push_back("one");
+    num_in_words.push_back("two");
+    num_in_words.push_back("three");
+    num_in_words.push_back("four");
+    num_in_words.push_back("five");
+    num_in_words.push_back("six");
+    num_in_words.push_back("seven");
+    num_in_words.push_back("eight");
+    num_in_words.push_back("nine");
+    num_in_words.push_back("ten");
 
-    // t.pop_back();
-    // t.pop_back();
-    // t.pop_back();
-    // t.pop_back();
-    // t.pop_back();
+    for(int i = 0; i < num_in_words.size(); i++) { 
+        std::cout << num_in_words[i] << " ";
+    }
 
-    // std::cout << "\n============" << std::endl;
-    // std::cout << t.size() << std::endl;
-    // std::cout << t.capacity() << std::endl;
-    // std::cout << "\n============" << std::endl;
+    std::cout << std::endl;
 
-    // std::cout << t.empty() << std::endl;
-    // t.push_back(101);
-    // std::cout << t.empty() << std::endl;
+    num_in_words.pop_back();
+    num_in_words.pop_back();
+    num_in_words.pop_back();
+    num_in_words.pop_back(2);
 
-    // t.clear();
-    // std::cout << "\n============" << std::endl;
-    // std::cout << t.size() << std::endl;
-    // std::cout << t.capacity() << std::endl;
-    // std::cout << "\n============" << std::endl;
+    for(int i = 0; i < num_in_words.size(); i++) { 
+        std::cout << num_in_words[i] << " ";
+    }
 
-
-
-
-    // t.pop_back(); 
-
-    // std::cout << t.size() << std::endl;
-    // std::cout << t[1] << std::endl;
-
-    // MyVector<std::string> s;
-    // s.push_back("Test");
-    // std::cout << s[0] << std::endl;
-    // std::cout << s.size() << std::endl;
-
-    // std::cout << t.capacity() << std::endl;
-
+    std::cout << std::endl;
     return 0;
 }
